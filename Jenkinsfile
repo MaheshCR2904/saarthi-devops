@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        MONGODB_URI = 'mongodb://localhost:27017/saarthi'
+    }
+
     stages {
 
         stage('Checkout') {
