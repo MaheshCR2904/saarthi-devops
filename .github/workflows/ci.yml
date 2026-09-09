@@ -12,6 +12,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      MONGODB_URI: mongodb://localhost:27017/saarthi
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
