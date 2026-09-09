@@ -1,0 +1,24 @@
+services:
+  saarthti:
+    build: .
+    container_name: saarthi-app
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.local
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/saarthi
+      NEXT_PUBLIC_APP_URL: http://localhost:3000
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:7
+    container_name: saarthi-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+
+volumes:
+  mongodb-data:
